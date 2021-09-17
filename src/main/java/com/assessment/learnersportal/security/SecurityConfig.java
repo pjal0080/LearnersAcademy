@@ -1,4 +1,4 @@
-package com.assesment.learners_academy.security;
+package com.assessment.learnersportal.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
