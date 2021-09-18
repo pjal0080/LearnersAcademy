@@ -3,6 +3,7 @@ package com.assessment.learnersportal.classes;
 import com.assessment.learnersportal.students.Student;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,8 @@ public class Classes {
     @Column(name = "class_timings")
     private String classTimings;
 
+    @OneToMany(mappedBy = "classes",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Student> students;
 
     public Classes(){
 
