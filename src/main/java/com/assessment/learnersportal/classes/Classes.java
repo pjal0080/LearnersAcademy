@@ -1,9 +1,10 @@
 package com.assessment.learnersportal.classes;
 
 import com.assessment.learnersportal.students.Student;
+import com.assessment.learnersportal.teachers.Teacher;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,13 @@ public class Classes {
 
     @OneToMany(mappedBy = "classes",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Student> students;
+
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "teacher_id",nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Teacher teachers;
+
+
 
     public Classes(){
 
