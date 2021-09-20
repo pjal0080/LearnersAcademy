@@ -6,23 +6,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
-<div class = "text-center">
-    <h2> Here are the list of teachers </h2>
+
+<div th:replace = "navbar :: navbar"></div>
+
+<div class = "text-center mt-5">
+    <h2> Here is the list of teachers </h2>
 </div>
 
-<ul>
-    <li th:each = "Teacher : ${teachers}">
-    <span th:text = "${Teacher.firstName}">Default
-    </span>
-        <span th:text = "${Teacher.lastName}">Default
-        </span>
-        <span th:text = "${Teacher.age}">Default
-        </span>
-        <span th:text = "${Teacher.phoneNo}">Default
-        </span>
-        <a th:href = "@{/admin/dashboard/classes/{id}(id=${Teacher.id})}">List of classes</a>
 
-</ul>
+<div class="card card-body mt-5">
+
+    <table class="table table-sm table-hover border ">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Phone No</th>
+            <th>List of Classes</th>
+        </tr>
+
+        <tr th:each = "Teacher : ${teachers}">
+            <td th:text = "${Teacher.firstName}"></td>
+            <td th:text = "${Teacher.lastName}"></td>
+            <td th:text = "${Teacher.age}"></td>
+            <td th:text = "${Teacher.phoneNo}"></td>
+            <td><a th:href = "@{/admin/dashboard/classes/{id}(id=${Teacher.id})}">List of classes</a></td>
+        </tr>
+
+    </table>
+</div>
+
 
 
 

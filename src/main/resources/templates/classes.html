@@ -7,28 +7,34 @@
 
 </head>
 <body>
+<div th:replace = "navbar :: navbar"></div>
 <div class = "text-center">
-    <h2> Here are the list of classes </h2>
+    <h2> Here is the list of classes </h2>
 </div>
 
-<ul>
-    <li th:each = "Class : ${classes}">
-    <span th:text = "${Class.id}">Default
-    </span>
-        <span th:text = "${Class.subject}">Default
-        </span>
-        <span th:text = "${Class.classTimings}">Default
-        </span>
-        <span th:text = "${Class.teachers.firstName}">Default
-        </span>
-        <span th:text = "${Class.teachers.lastName}">Default
-        </span>
-        <a th:href = "@{/admin/dashboard/students/{id}(id=${Class.id})}">List of Students</a>
 
+<div class="card card-body mt-5">
 
-    </li>
+    <table class="table table-sm table-hover border ">
+        <tr>
+            <th>Class No</th>
+            <th>Subject</th>
+            <th>Class Timings</th>
+            <th>Subject Teacher</th>
+            <th>List of students</th>
+        </tr>
 
-</ul>
+        <tr th:each = "Class : ${classes}">
+            <td th:text = "${Class.id}"></td>
+            <td th:text = "${Class.subject}"></td>
+            <td th:text = "${Class.classTimings}"></td>
+            <td th:text = "${Class.teachers.firstName} + ' ' + ${Class.teachers.lastName}"></td>
+            <td><a th:href = "@{/admin/dashboard/students/{id}(id=${Class.id})}">List of Students</a></td>
+        </tr>
+
+    </table>
+</div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

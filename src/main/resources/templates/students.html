@@ -7,21 +7,32 @@
 
 </head>
 <body>
+<div th:replace = "navbar :: navbar"></div>
 <div class = "text-center">
-    <h2> Here are the list of students </h2>
+    <h2> Here is the list of students </h2>
 </div>
 
-<ul>
-    <li th:each = "Student : ${students}">
-    <span th:text = "${Student.firstName}">Default
-    </span>
-        <span th:text = "${Student.lastName}">Default
-        </span>
-        <span th:text = "${Student.age}">Default
-        </span>
-        <span th:text = "${Student.phoneNo}">Default
-        </span>
-</ul>
+<div class="card card-body mt-5">
+
+    <table class="table table-sm table-hover border ">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Phone No</th>
+        </tr>
+
+        <tr th:each = "Student : ${students}">
+            <td th:text = "${Student.firstName}"></td>
+            <td th:text = "${Student.lastName}"></td>
+            <td th:text = "${Student.age}"></td>
+            <td th:text = "${Student.phoneNo}"></td>
+
+        </tr>
+
+    </table>
+</div>
+
 
 
 
