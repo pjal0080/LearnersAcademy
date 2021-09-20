@@ -19,7 +19,14 @@
         </span>
         <span th:text = "${Class.classTimings}">Default
         </span>
+        <span th:text = "${Class.teachers.firstName}">Default
+        </span>
+        <span th:text = "${Class.teachers.lastName}">Default
+        </span>
+        <a th:href = "@{/admin/dashboard/students/{id}(id=${Class.id})}">List of Students</a>
 
+
+    </li>
 
 </ul>
 

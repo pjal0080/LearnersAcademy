@@ -29,4 +29,10 @@ public class StudentService {
     }
 
 
+    public List<Student> getStudentsByClass(Long id){
+
+        return studentRepository.getStudentsByClassId(id);
+    }
+
+
 }

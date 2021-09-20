@@ -31,15 +31,25 @@ public class Classes {
     private Teacher teachers;
 
 
-
     public Classes(){
 
     }
 
-    public Classes(String subject, String classTimings) {
+    public Teacher getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Teacher teachers) {
+        this.teachers = teachers;
+    }
+
+    public Classes(Long id, String subject, String classTimings, Teacher teachers) {
+        this.id = id;
         this.subject = subject;
         this.classTimings = classTimings;
+        this.teachers = teachers;
     }
+
 
     public Long getId() {
         return id;
@@ -65,12 +75,5 @@ public class Classes {
         this.classTimings = classTimings;
     }
 
-    @Override
-    public String toString() {
-        return "Classes{" +
-                "id=" + id +
-                ", subject='" + subject + '\'' +
-                ", classTimings='" + classTimings + '\'' +
-                '}';
-    }
+
 }

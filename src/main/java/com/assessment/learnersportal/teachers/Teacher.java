@@ -33,12 +33,12 @@ public class Teacher {
 
     }
 
-    public Teacher(String firstName, String lastName, Integer age, String phoneNo, List<Classes> classes) {
+    public Teacher(String firstName, String lastName, Integer age, String phoneNo) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.phoneNo = phoneNo;
-        this.classes = classes;
+
     }
 
     public Long getId() {
@@ -81,12 +81,8 @@ public class Teacher {
         this.phoneNo = phoneNo;
     }
 
-    public List<Classes> getClasses() {
-        return classes;
-    }
 
-    public void setClasses(List<Classes> classes) {
-        this.classes = classes;
-    }
+
+
 
 }

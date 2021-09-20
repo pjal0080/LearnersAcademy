@@ -9,6 +9,7 @@ import com.assessment.learnersportal.teachers.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class AdminController {
     public String listTeachers(Model model){
 
         List<Teacher> teachers = teacherService.getTeachersList();
-
+//        teachers.forEach(e-> System.out.println(e)));
         model.addAttribute("teachers",teachers);
         return "teachers";
 
@@ -71,12 +72,29 @@ public class AdminController {
     public String listClasses(Model model){
 
         List<Classes> classes = classesService.getClassList();
-
+        classes.forEach(e-> System.out.println(e.getId()));
+        System.out.println(classes);
         model.addAttribute("classes",classes);
         return "classes";
 
     }
 
+    @RequestMapping(path = "/dashboard/students/{id}")
+    public String listStudentsByClass(Model model, @PathVariable Long id){
 
+        List<Student> students = studentService.getStudentsByClass(id);
+
+        model.addAttribute("students",students);
+        return "student_in_class";
+    }
+
+    @RequestMapping(path = "/dashboard/classes/{id}")
+    public String listClassesByTeacher(Model model, @PathVariable Long id) {
+
+        List<Classes> classes = classesService.getClassesByTeacher(id);
+        model.addAttribute("classes",classes);
+        return "classes_by_teacher";
+
+    }
 
 }

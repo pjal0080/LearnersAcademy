@@ -28,4 +28,11 @@ public class ClassesService {
     }
 
 
+    public List<Classes> getClassesByTeacher(Long id){
+
+        return classesRepository.getClassesByTeacherId(id);
+
+    }
+
+
 }
