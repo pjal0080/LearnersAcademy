@@ -3,16 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>ListOfClassesByTeacher</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
 <div th:replace = "navbar :: navbar"></div>
 
-<div class = "text-center">
+  <br><br>
+<div class = "text-center mt-5">
   <h2> Here is the list of classes assigned to <span th:text = "${classes[0].teachers.firstName} + ' ' + ${classes[0].teachers.lastName}"></span></h2>
 </div>
+
 
 <div class="card card-body mt-5">
 
@@ -29,9 +36,6 @@
 
   </table>
 </div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+</div>
 </body>
 </html>
