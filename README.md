@@ -1,8 +1,9 @@
 # LearnersAcademy
 
 Clone this project and open it in Ecllipse Ide for web developers. Start the project and after that 
-Go to localhost:8080/login to access this application
+go to localhost:8080/login to access this application.
 
 Username : admin
+
 Password : admin
 
